@@ -2,6 +2,11 @@ extends layout
 
 block content
     h3 Your primary service center is
-    h4= name
-    h3 It is located at
-    p= streetName
+    h2= name
+    #serviceContainer
+        #adress
+            p= streetName
+            p= postNumberCity
+        #openingHours
+            #monday= 'MO:  ' + monday
+            #tuesday= 'TUE: ' + tuesday

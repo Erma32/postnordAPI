@@ -6,3 +6,15 @@ body {
 a {
   color: #00B7FF;
 }
+
+#serviceContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+#adress {
+  width: 40vw;
+}
+
+#openingHours {
+ width: 200px;
+}
