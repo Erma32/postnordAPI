@@ -11,6 +11,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 let serviceRouter = require('./routes/foundServiceCenter');
 
+let servicePointName;
+let servicePointAddress;
+let openingHours;
+
 var app = express();
 
 // view engine setup
@@ -29,13 +33,12 @@ app.use('/users', usersRouter);
 app.use('/foundServiceStation', function (req, res, next) {
     req.animal_config = {
         name: servicePointName,
-        address: servicePointAddress
+        address: servicePointAddress,
+        openingHours: openingHours
     };
     next();
 }, serviceRouter);
 
-let servicePointName;
-let servicePointAddress;
 app.post('/add', (req, res) => {
   let apiPath = 'https://api2.postnord.com/rest/businesslocation/v1/servicepoint/findByPostalCode.json?apikey=20ca9b31c52d7fda7e7bf3eddee6095e&countryCode=SE&postalCode=' + req.body.postalCode;
   axios({
@@ -45,6 +48,7 @@ app.post('/add', (req, res) => {
        const responseObject = response.data.servicePointInformationResponse.servicePoints[0];
        servicePointName = responseObject.name;
        servicePointAddress = responseObject.visitingAddress;
+       openingHours = responseObject.openingHours;
        res.redirect('/foundServiceStation')
    }).catch(function (err){
     console.log(err);

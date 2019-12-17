@@ -7,14 +7,30 @@ a {
   color: #00B7FF;
 }
 
+#searchResult{
+  margin: 0 auto;
+  width: 30vw;
+  font-size: medium;
+}
+
 #serviceContainer {
   display: flex;
   flex-wrap: wrap;
 }
 #adress {
-  width: 40vw;
+  width: 20vw;
 }
 
 #openingHours {
- width: 200px;
+  margin-top: 15px;
+
+}
+
+strong{
+  margin-right: 10px;
+
+}
+span{
+  text-align: left;
+  float: right;
 }

@@ -1,12 +1,33 @@
 extends layout
 
 block content
-    h3 Your primary service center is
-    h2= name
-    #serviceContainer
-        #adress
-            p= streetName
-            p= postNumberCity
-        #openingHours
-            #monday= 'MO:  ' + monday
-            #tuesday= 'TUE: ' + tuesday
+    #searchResult
+        h3 Your primary service center is
+        h2= name
+        #serviceContainer
+            #adress
+                p= streetName
+                p= postNumberCity
+                a(href='http://maps.google.com/?q=' + streetName ) Show on Map
+            #openingHours
+                #monday
+                    strong= 'MO: '
+                    span= monday.from1 + ' - ' + monday.to1
+                #tuesday
+                    strong= 'TU: '
+                    span= tuesday.from1 + ' - ' + tuesday.to1
+                #wednesday
+                    strong= 'WE: '
+                    span= wednesday.from1 + ' - ' + wednesday.to1
+                #thursday
+                    strong= 'TH: '
+                    span= thursday.from1 + ' - ' + thursday.to1
+                #friday
+                    strong='FR: '
+                    span= friday.from1 + ' - ' + friday.to1
+                #saturday
+                    strong='SA: '
+                    span= saturday.from1 + ' - ' + saturday.to1
+                #sunday
+                    strong='SU: '
+                    span= sunday.from1 + ' - ' + sunday.to1
