@@ -3,7 +3,7 @@ extends layout
 block content
   body
     h1 Find your closest Swedish shipping station!
-    form(action="http://localhost:3000/add" method="POST")
+    form(action="http://ec2-13-48-194-81.eu-north-1.compute.amazonaws.com:3000/add" method="POST")
       p Postal Code:
       input(type="number" id="postalCode" placeholder="ex 22363" name="postalCode")
       input(type="submit")
