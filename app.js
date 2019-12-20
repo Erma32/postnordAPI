@@ -40,7 +40,7 @@ app.use('/foundServiceStation', function (req, res, next) {
 }, serviceRouter);
 
 app.post('/add', (req, res) => {
-  let apiPath = 'https://api2.postnord.com/rest/businesslocation/v1/servicepoint/findByPostalCode.json?apikey=20ca9b31c52d7fda7e7bf3eddee6095e&countryCode=SE&postalCode=' + req.body.postalCode;
+  let apiPath = 'https://api2.postnord.com/rest/businesslocation/v1/servicepoint/findByPostalCode.json?apikey=20ca9b31c52d7fda7e7bf3eddee6095e&countryCode=' + req.body.countryCode + '&postalCode=' + req.body.postalCode;
   axios({
     method: 'get',
     url: apiPath,

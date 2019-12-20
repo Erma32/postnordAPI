@@ -7,7 +7,55 @@ a {
   color: #00B7FF;
 }
 
+strong{
+  margin-right: 10px;
+
+}
+span{
+  text-align: left;
+  float: right;
+}
+
+label {
+  display:block;
+  margin-bottom: 3px;
+}
+
+input{
+  display: block;
+  margin-top: 10px;
+}
+
+.formElement {
+  margin-bottom: 10px;
+  width: 450px;
+  padding: 12px;
+}
+
+#submitButton{
+  background-color: #00B7FF;
+  border: none;
+  width: 75px;
+  padding: 12px;
+  color: white;
+  font-weight: 700;
+}
+#submitButton:hover{
+  background-color: steelblue;
+  cursor: pointer;
+}
+
+#postalCode {
+  width: 421px;
+}
+
 #searchResult{
+  margin: 0 auto;
+  width: 30vw;
+  font-size: medium;
+}
+
+#searchContainer{
   margin: 0 auto;
   width: 30vw;
   font-size: medium;
@@ -26,11 +74,4 @@ a {
 
 }
 
-strong{
-  margin-right: 10px;
 
-}
-span{
-  text-align: left;
-  float: right;
-}
