@@ -3,7 +3,7 @@ extends layout
 block content
   body
     #searchContainer
-      h1 Find your closest service station!
+      h1(id="formHeader") Find your closest service station!
       form(action="http://localhost:3000/add" method="POST")
         label(for='countryCode') Country:
         select(id='countryCode' name="countryCode" class="formElement")
