@@ -2,13 +2,13 @@ extends layout
 
 block content
     #searchResult
-        h3 Your primary service center is
+        h3 Your closest service center is:
         h2= name
         #serviceContainer
             #adress
                 p= streetName
                 p= postNumberCity
-                a(href='http://maps.google.com/?q=' + streetName target="_blank" ) Show on Map
+                a(href='http://maps.google.com/?q=' + streetName + ' ' + postNumberCity target="_blank" ) Show on Map
             #openingHours
                 #monday
                     strong= 'MO: '
@@ -31,3 +31,4 @@ block content
                 #sunday
                     strong='SU: '
                     span= sunday.from1 + ' - ' + sunday.to1
+            button(onclick="javascript:history.back()" id="submitButton") Back
