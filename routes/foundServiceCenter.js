@@ -1,21 +1,23 @@
 var express = require('express');
 var router = express.Router();
-let axios = require('axios');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-    let passedObject = req.animal_config;
+router.get('/', function(req, res) {
+    const passedObject = req.responseObject;
+    const address = req.responseObject.visitingAddress;
+    const hours = req.responseObject.openingHours;
     res.render('foundServiceStation', {
+        title: 'Found Service Center',
         name: passedObject.name,
-        streetName: passedObject.address.streetName + ' ' + passedObject.address.streetNumber,
-        postNumberCity: passedObject.address.postalCode + ' ' + passedObject.address.city,
-        monday: passedObject.openingHours[0],
-        tuesday: passedObject.openingHours[1],
-        wednesday: passedObject.openingHours[2],
-        thursday: passedObject.openingHours[3],
-        friday: passedObject.openingHours[4],
-        saturday: passedObject.openingHours[5],
-        sunday: passedObject.openingHours[6]
+        streetName: address.streetName + ' ' + address.streetNumber,
+        postNumberCity: address.postalCode + ' ' + address.city,
+        monday: hours[0],
+        tuesday: hours[1],
+        wednesday: hours[2],
+        thursday: hours[3],
+        friday: hours[4],
+        saturday: hours[5],
+        sunday: hours[6]
     });
 });
 

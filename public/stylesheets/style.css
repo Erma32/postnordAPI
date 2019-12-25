@@ -49,7 +49,7 @@ svg {
 }
 
 #adress {
-  width: 20vw;
+
 }
 
 #api_header {
@@ -78,14 +78,23 @@ svg {
 }
 
 #searchResult{
-  margin: 0 auto;
-  width: 30vw;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: auto;
+  position: absolute;
+  left: 0; right: 0;
+  width: 450px;
   font-size: medium;
 }
 
 #serviceContainer {
+  width: 98vw;
+  max-width: 500px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 2px;
 }
 
 #submitButton{

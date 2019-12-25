@@ -1,21 +1,20 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 let axios = require('axios');
+const favicon = require('serve-favicon');
 
 const bodyParser = require('body-parser');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 let serviceRouter = require('./routes/foundServiceCenter');
 
-let servicePointName;
-let servicePointAddress;
-let openingHours;
+let responseObject;
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,14 +27,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.png')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/foundServiceStation', function (req, res, next) {
-    req.animal_config = {
-        name: servicePointName,
-        address: servicePointAddress,
-        openingHours: openingHours
-    };
+    req.responseObject = responseObject;
     next();
 }, serviceRouter);
 
@@ -45,10 +41,7 @@ app.post('/add', (req, res) => {
     method: 'get',
     url: apiPath,
    }).then(function (response) {
-       const responseObject = response.data.servicePointInformationResponse.servicePoints[0];
-       servicePointName = responseObject.name;
-       servicePointAddress = responseObject.visitingAddress;
-       openingHours = responseObject.openingHours;
+       responseObject = response.data.servicePointInformationResponse.servicePoints[0];
        res.redirect('/foundServiceStation')
    }).catch(function (err){
     console.log(err);
