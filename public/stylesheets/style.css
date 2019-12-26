@@ -65,6 +65,7 @@ svg {
   min-width: 340px;
 }
 
+
 #openingHours {
   margin-top: 15px;
 }
@@ -111,4 +112,32 @@ svg {
 }
 
 
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 60%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
 
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+pre {
+  padding: 0 18px;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+#errorContainer {
+  margin: auto;
+  position: absolute;
+  left: 0; right: 0;
+  width: 450px;
+  font-size: medium;
+}

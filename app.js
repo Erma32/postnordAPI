@@ -44,7 +44,7 @@ app.post('/add', (req, res) => {
        responseObject = response.data.servicePointInformationResponse.servicePoints[0];
        res.redirect('/foundServiceStation')
    }).catch(function (err){
-    console.log(err);
+       errorHandler(err, req, res);
      return err
   });
 });
@@ -55,14 +55,13 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res) {
+function errorHandler(err, req, res) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
+}
 
 module.exports = app;
