@@ -1,0 +1,35 @@
+extends layout
+
+block content
+    #searchResult
+        h3 Your closest service center is:
+        h2= name
+        #serviceContainer
+            #adress
+                p= streetName
+                p= postNumberCity
+                a(href='http://maps.google.com/?q=' + streetName + ' ' + postNumberCity target="_blank" ) Show on Map
+            #openingHours
+                #monday
+                    strong= 'MO: '
+                    span= monday.from1 + ' - ' + monday.to1
+                #tuesday
+                    strong= 'TU: '
+                    span= tuesday.from1 + ' - ' + tuesday.to1
+                #wednesday
+                    strong= 'WE: '
+                    span= wednesday.from1 + ' - ' + wednesday.to1
+                #thursday
+                    strong= 'TH: '
+                    span= thursday.from1 + ' - ' + thursday.to1
+                #friday
+                    strong='FR: '
+                    span= friday.from1 + ' - ' + friday.to1
+                #saturday
+                    strong='SA: '
+                    span= saturday.from1 + ' - ' + saturday.to1
+                #sunday
+                    strong='SU: '
+                    span= sunday.from1 + ' - ' + sunday.to1
+
+        button(onclick="javascript:history.back()" id="submitButton") Back

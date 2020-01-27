@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  body
+    #searchContainer
+      h1(id="formHeader") Find your closest service station!
+      form(action="http://localhost:3000/add" method="POST")
+        label(for='countryCode') Country:
+        select(id='countryCode' name="countryCode" class="formElement")
+          option(value='SE') Sweden
+          option(value='DK') Denmark
+          option(value='FI') Finland
+          option(value='NO') Norway
+
+        label(for="postalCode") Postal Code:
+        input(type="number" id="postalCode" placeholder="ex 22363" name="postalCode" class="formElement" required=true)
+
+        button(type="submit" id='submitButton') Submit
