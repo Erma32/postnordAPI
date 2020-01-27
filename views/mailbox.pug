@@ -3,6 +3,7 @@ extends layout
 block content
   body
     #searchContainer
+
       h1(id="formHeader") Find your local mailbox
       form(action="http://localhost:3000/addPostbox" method="POST")
         label(for='countryCode') Country:
@@ -14,5 +15,6 @@ block content
 
         label(for="location") Location:
         input(type="text" id="location" placeholder="ex: city, street or postalCode" name="location" class="formElement" required=true)
+
 
         button(type="submit" id='submitButton') Submit
