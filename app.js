@@ -10,7 +10,9 @@ const bodyParser = require('body-parser');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const mailboxRouter = require('./routes/mailbox');
 let serviceRouter = require('./routes/foundServiceCenter');
+const foundBoxRouter = require('./routes/foundMailBox');
 
 let responseObject;
 
@@ -30,10 +32,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.png')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/mailbox', mailboxRouter);
 app.use('/foundServiceStation', function (req, res, next) {
     req.responseObject = responseObject;
     next();
 }, serviceRouter);
+app.use('/foundMailbox', function (req, res, next) {
+    req.responseObject = responseObject;
+    next();
+}, foundBoxRouter);
 
 app.post('/add', (req, res) => {
   let apiPath = 'https://api2.postnord.com/rest/businesslocation/v1/servicepoint/findByPostalCode.json?apikey=20ca9b31c52d7fda7e7bf3eddee6095e&countryCode=' + req.body.countryCode + '&postalCode=' + req.body.postalCode;
@@ -47,6 +54,21 @@ app.post('/add', (req, res) => {
        errorHandler(err, req, res);
      return err
   });
+});
+
+app.post('/addPostbox', (req, res) => {
+    let apiPath = 'https://api2.postnord.com/rest/location/v1/mailbox/search?q=' + req.body.location + '&country=SE&apikey=20ca9b31c52d7fda7e7bf3eddee6095e';
+    axios({
+        method: 'get',
+        url: apiPath,
+    }).then(function (response) {
+        console.log(response.data[1]);
+        responseObject = response.data[1];
+        res.redirect('/foundMailbox')
+    }).catch(function (err){
+        errorHandler(err, req, res);
+        return err
+    });
 });
 
 // catch 404 and forward to error handler

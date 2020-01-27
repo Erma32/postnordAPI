@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  body
+    #searchContainer
+      h1(id="formHeader") Find your local mailbox
+      form(action="http://localhost:3000/addPostbox" method="POST")
+        label(for='countryCode') Country:
+        select(id='countryCode' name="countryCode" class="formElement")
+          option(value='SE') Sweden
+          option(value='DK') Denmark
+          option(value='FI') Finland
+          option(value='NO') Norway
+
+        label(for="location") Location:
+        input(type="text" id="location" placeholder="ex: city, street or postalCode" name="location" class="formElement" required=true)
+
+        button(type="submit" id='submitButton') Submit

@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    #searchResult
+        h3 Your mailbox is located at:
+        #serviceContainer
+            #adress
+                p= streetName
+                p= postNumberCity
+                a(href='http://maps.google.com/?q=' + streetName + ' ' + postNumberCity target="_blank" ) Show on Map
+
+
+        button(onclick="javascript:history.back()" id="submitButton" style="margin-top:10px;") Back

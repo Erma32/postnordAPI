@@ -9,10 +9,12 @@ header{
   background: #00a0d6;
   height: 60px;
   width: 100%;
+  display: flex;
 }
 
 input{
   display: block;
+  -moz-appearance:textfield;
 }
 
 label {
@@ -52,11 +54,12 @@ svg {
 
 }
 
-#api_header {
+.api_header {
   margin: 0;
   padding-top: 20px;
   color: white;
-  font-family: "Courier New", Courier, monospace
+  font-family: "Courier New", Courier, monospace;
+  max-width: 275px;
 }
 
 #formHeader {
@@ -74,7 +77,7 @@ svg {
   margin: auto;
   position: absolute;
   left: 0; right: 0;
-  width: 340px;
+  width: 450px;
   font-size: medium;
 }
 
@@ -140,4 +143,15 @@ pre {
   left: 0; right: 0;
   width: 450px;
   font-size: medium;
+}
+
+.navButton{
+  background-color: #00a0d6;
+  border: none;
+  color: white;
+  font-weight: 700;
+}
+.navButton:hover{
+  background-color: steelblue;
+  cursor: pointer;
 }
