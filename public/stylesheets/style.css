@@ -63,6 +63,7 @@ svg {
 }
 
 #formHeader {
+  margin: 0px;
   width: 30vw;
   max-width: 450px;
   min-width: 340px;
@@ -79,6 +80,10 @@ svg {
   left: 0; right: 0;
   width: 450px;
   font-size: medium;
+  background: #eeeeee;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px gray;
 }
 
 #searchResult{
@@ -141,7 +146,7 @@ pre {
   margin: auto;
   position: absolute;
   left: 0; right: 0;
-  width: 450px;
+  width: 455px;
   font-size: medium;
 }
 
